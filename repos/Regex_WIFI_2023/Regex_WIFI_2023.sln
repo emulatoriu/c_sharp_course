@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regex_WIFI_2023", "Regex_WIFI_2023.csproj", "{F2C70D2C-1D4B-42F2-A3D0-0A78EBB5E76F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2C70D2C-1D4B-42F2-A3D0-0A78EBB5E76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C70D2C-1D4B-42F2-A3D0-0A78EBB5E76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C70D2C-1D4B-42F2-A3D0-0A78EBB5E76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C70D2C-1D4B-42F2-A3D0-0A78EBB5E76F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A00922C7-5329-4A3F-BC47-BD0D8EDD8487}
+	EndGlobalSection
+EndGlobal

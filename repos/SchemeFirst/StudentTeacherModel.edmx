@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StudentTeacherModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="StudentTeacherModelStoreContainer">
+    <EntitySet Name="StudentSet" EntityType="StudentTeacherModel.Store.StudentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeacherSet" EntityType="StudentTeacherModel.Store.TeacherSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudentTeacherSet" EntityType="StudentTeacherModel.Store.StudentTeacherSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudentStudentTeacher" EntityType="StudentTeacherModel.Store.StudentStudentTeacher" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TeacherStudentTeacher" EntityType="StudentTeacherModel.Store.TeacherStudentTeacher" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_StudentStudentTeacher_Student" Association="StudentTeacherModel.Store.FK_StudentStudentTeacher_Student">
+      <End Role="Student" EntitySet="StudentSet" />
+      <End Role="StudentStudentTeacher" EntitySet="StudentStudentTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentStudentTeacher_StudentTeacher" Association="StudentTeacherModel.Store.FK_StudentStudentTeacher_StudentTeacher">
+      <End Role="StudentTeacher" EntitySet="StudentTeacherSet" />
+      <End Role="StudentStudentTeacher" EntitySet="StudentStudentTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeacherStudentTeacher_Teacher" Association="StudentTeacherModel.Store.FK_TeacherStudentTeacher_Teacher">
+      <End Role="Teacher" EntitySet="TeacherSet" />
+      <End Role="TeacherStudentTeacher" EntitySet="TeacherStudentTeacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeacherStudentTeacher_StudentTeacher" Association="StudentTeacherModel.Store.FK_TeacherStudentTeacher_StudentTeacher">
+      <End Role="StudentTeacher" EntitySet="StudentTeacherSet" />
+      <End Role="TeacherStudentTeacher" EntitySet="TeacherStudentTeacher" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="StudentSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeacherSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentTeacherSet">
+    <Key>
+      <PropertyRef Name="StudentID" />
+      <PropertyRef Name="TeacherID" />
+    </Key>
+    <Property Name="StudentID" Type="int" Nullable="false" />
+    <Property Name="TeacherID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudentStudentTeacher">
+    <Key>
+      <PropertyRef Name="Student_Id" />
+      <PropertyRef Name="StudentTeacher_StudentID" />
+      <PropertyRef Name="StudentTeacher_TeacherID" />
+    </Key>
+    <Property Name="Student_Id" Type="int" Nullable="false" />
+    <Property Name="StudentTeacher_StudentID" Type="int" Nullable="false" />
+    <Property Name="StudentTeacher_TeacherID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeacherStudentTeacher">
+    <Key>
+      <PropertyRef Name="Teacher_Id" />
+      <PropertyRef Name="StudentTeacher_StudentID" />
+      <PropertyRef Name="StudentTeacher_TeacherID" />
+    </Key>
+    <Property Name="Teacher_Id" Type="int" Nullable="false" />
+    <Property Name="StudentTeacher_StudentID" Type="int" Nullable="false" />
+    <Property Name="StudentTeacher_TeacherID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_StudentStudentTeacher_Student">
+    <End Role="Student" Type="StudentTeacherModel.Store.StudentSet" Multiplicity="1" />
+    <End Role="StudentStudentTeacher" Type="StudentTeacherModel.Store.StudentStudentTeacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentStudentTeacher">
+        <PropertyRef Name="Student_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentStudentTeacher_StudentTeacher">
+    <End Role="StudentStudentTeacher" Type="StudentTeacherModel.Store.StudentStudentTeacher" Multiplicity="*" />
+    <End Role="StudentTeacher" Type="StudentTeacherModel.Store.StudentTeacherSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="StudentTeacher">
+        <PropertyRef Name="StudentID" />
+        <PropertyRef Name="TeacherID" />
+      </Principal>
+      <Dependent Role="StudentStudentTeacher">
+        <PropertyRef Name="StudentTeacher_StudentID" />
+        <PropertyRef Name="StudentTeacher_TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeacherStudentTeacher_Teacher">
+    <End Role="Teacher" Type="StudentTeacherModel.Store.TeacherSet" Multiplicity="1" />
+    <End Role="TeacherStudentTeacher" Type="StudentTeacherModel.Store.TeacherStudentTeacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeacherStudentTeacher">
+        <PropertyRef Name="Teacher_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeacherStudentTeacher_StudentTeacher">
+    <End Role="TeacherStudentTeacher" Type="StudentTeacherModel.Store.TeacherStudentTeacher" Multiplicity="*" />
+    <End Role="StudentTeacher" Type="StudentTeacherModel.Store.StudentTeacherSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="StudentTeacher">
+        <PropertyRef Name="StudentID" />
+        <PropertyRef Name="TeacherID" />
+      </Principal>
+      <Dependent Role="TeacherStudentTeacher">
+        <PropertyRef Name="StudentTeacher_StudentID" />
+        <PropertyRef Name="StudentTeacher_TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="StudentTeacherModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="StudentTeacherModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StudentSet" EntityType="StudentTeacherModel.Student" />
+          <EntitySet Name="TeacherSet" EntityType="StudentTeacherModel.Teacher" />
+          <EntitySet Name="StudentTeacherSet" EntityType="StudentTeacherModel.StudentTeacher" />
+          <AssociationSet Name="StudentStudentTeacher" Association="StudentTeacherModel.StudentStudentTeacher">
+            <End Role="Student" EntitySet="StudentSet" />
+            <End Role="StudentTeacher" EntitySet="StudentTeacherSet" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherStudentTeacher" Association="StudentTeacherModel.TeacherStudentTeacher">
+            <End Role="Teacher" EntitySet="TeacherSet" />
+            <End Role="StudentTeacher" EntitySet="StudentTeacherSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="StudentTeacher" Relationship="StudentTeacherModel.StudentStudentTeacher" FromRole="Student" ToRole="StudentTeacher" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="StudentTeacher" Relationship="StudentTeacherModel.TeacherStudentTeacher" FromRole="Teacher" ToRole="StudentTeacher" />
+        </EntityType>
+        <EntityType Name="StudentTeacher">
+          <Key>
+            <PropertyRef Name="StudentID" />
+            <PropertyRef Name="TeacherID" />
+          </Key>
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="TeacherID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="StudentTeacherModel.StudentStudentTeacher" FromRole="StudentTeacher" ToRole="Student" />
+          <NavigationProperty Name="Teacher" Relationship="StudentTeacherModel.TeacherStudentTeacher" FromRole="StudentTeacher" ToRole="Teacher" />
+        </EntityType>
+        <Association Name="StudentStudentTeacher">
+          <End Type="StudentTeacherModel.Student" Role="Student" Multiplicity="*" />
+          <End Type="StudentTeacherModel.StudentTeacher" Role="StudentTeacher" Multiplicity="*" />
+        </Association>
+        <Association Name="TeacherStudentTeacher">
+          <End Type="StudentTeacherModel.Teacher" Role="Teacher" Multiplicity="*" />
+          <End Type="StudentTeacherModel.StudentTeacher" Role="StudentTeacher" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudentTeacherModelStoreContainer" CdmEntityContainer="StudentTeacherModelContainer">
+    <EntitySetMapping Name="StudentSet">
+      <EntityTypeMapping TypeName="IsTypeOf(StudentTeacherModel.Student)">
+        <MappingFragment StoreEntitySet="StudentSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherSet">
+      <EntityTypeMapping TypeName="IsTypeOf(StudentTeacherModel.Teacher)">
+        <MappingFragment StoreEntitySet="TeacherSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentTeacherSet">
+      <EntityTypeMapping TypeName="IsTypeOf(StudentTeacherModel.StudentTeacher)">
+        <MappingFragment StoreEntitySet="StudentTeacherSet">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="StudentStudentTeacher" TypeName="StudentTeacherModel.StudentStudentTeacher" StoreEntitySet="StudentStudentTeacher">
+      <EndProperty Name="Student">
+        <ScalarProperty Name="Id" ColumnName="Student_Id" />
+      </EndProperty>
+      <EndProperty Name="StudentTeacher">
+        <ScalarProperty Name="StudentID" ColumnName="StudentTeacher_StudentID" />
+        <ScalarProperty Name="TeacherID" ColumnName="StudentTeacher_TeacherID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeacherStudentTeacher" TypeName="StudentTeacherModel.TeacherStudentTeacher" StoreEntitySet="TeacherStudentTeacher">
+      <EndProperty Name="Teacher">
+        <ScalarProperty Name="Id" ColumnName="Teacher_Id" />
+      </EndProperty>
+      <EndProperty Name="StudentTeacher">
+        <ScalarProperty Name="StudentID" ColumnName="StudentTeacher_StudentID" />
+        <ScalarProperty Name="TeacherID" ColumnName="StudentTeacher_TeacherID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNet_Backend_Test_2023", "ASPNet_Backend_Test_2023.csproj", "{B19F2619-35B2-454C-85DD-3638A81B3289}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B19F2619-35B2-454C-85DD-3638A81B3289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19F2619-35B2-454C-85DD-3638A81B3289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19F2619-35B2-454C-85DD-3638A81B3289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19F2619-35B2-454C-85DD-3638A81B3289}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F24A631-35B3-43C7-9388-A72B6E23E600}
+	EndGlobalSection
+EndGlobal

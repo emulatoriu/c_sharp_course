@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "StammbaumRekursiv": {
+      "commandName": "Project",
+      "commandLineArgs": "\"Karl Muellser\""
+    }
+  }
+}

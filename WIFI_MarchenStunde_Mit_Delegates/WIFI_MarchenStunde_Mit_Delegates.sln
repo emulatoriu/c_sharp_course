@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI_MarchenStunde_Mit_Delegates", "WIFI_MarchenStunde_Mit_Delegates.csproj", "{C62D843C-3F7C-4726-864E-F5486C8C2150}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C62D843C-3F7C-4726-864E-F5486C8C2150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C62D843C-3F7C-4726-864E-F5486C8C2150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C62D843C-3F7C-4726-864E-F5486C8C2150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C62D843C-3F7C-4726-864E-F5486C8C2150}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0AC1336-EA87-4162-A8E2-F5EAAF83D00A}
+	EndGlobalSection
+EndGlobal

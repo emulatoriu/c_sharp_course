@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WIFI_Client_Pipe_Timer", "WIFI_Client_Pipe_Timer.csproj", "{F55E4C34-9911-49DD-BCB5-1E60B41D0717}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F55E4C34-9911-49DD-BCB5-1E60B41D0717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F55E4C34-9911-49DD-BCB5-1E60B41D0717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F55E4C34-9911-49DD-BCB5-1E60B41D0717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F55E4C34-9911-49DD-BCB5-1E60B41D0717}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96E0CB04-83E6-4D2A-B9E1-309084E8AA73}
+	EndGlobalSection
+EndGlobal

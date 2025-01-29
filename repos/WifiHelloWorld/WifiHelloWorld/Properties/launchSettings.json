@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WifiHelloWorld": {
+      "commandName": "Project",
+      "commandLineArgs": "Hallo Leute"
+    }
+  }
+}

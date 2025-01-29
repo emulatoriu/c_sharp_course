@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:TokenEntryViewModel"  
+xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+xmlns:viewModels="clr-namespace:Nethereum.UI.Core.ViewModels;assembly=Nethereum.UI.Core"
+xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+x:Class="Nethereum.UI.Core.Views.TokenEntryPage"
+Title="{Binding Title}" Icon="{Binding Icon}">
+    <views:MvxContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="save.png" Text="Save" Priority="0" Command="{Binding SaveTokenCommand}" />
+    </views:MvxContentPage.ToolbarItems>
+    <views:MvxContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Name :" />
+            <Entry HorizontalTextAlignment="Start" Text="{Binding TokenName, Mode=TwoWay}" Placeholder="Token Name" />
+            <Label Text="Contract Address :" />
+            <Entry Text="{Binding TokenAddress, Mode=TwoWay}" Placeholder="Token contract address" />
+            <Label Text="Symbol :" />
+            <Entry  Text="{Binding Symbol, Mode=TwoWay}" Placeholder="Token Symbol" />
+            <Label Text="Decimal Places :" />
+            <Entry Text="{Binding DecimalPlaces, Mode=TwoWay}" Placeholder="Token precission, decimal places" />
+        </StackLayout>
+    </views:MvxContentPage.Content>
+</views:MvxContentPage>    

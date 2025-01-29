@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TestArrays": {
+      "commandName": "Project",
+      "commandLineArgs": "Hallo Ihr wie geht es euch heute denn"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Pixelator", "WPF_Pixelator.csproj", "{804D6008-D862-43BF-B53D-698861ADBEBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{804D6008-D862-43BF-B53D-698861ADBEBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{804D6008-D862-43BF-B53D-698861ADBEBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{804D6008-D862-43BF-B53D-698861ADBEBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{804D6008-D862-43BF-B53D-698861ADBEBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFE9B666-B90D-453E-90BF-A3F3CE45EC0F}
+	EndGlobalSection
+EndGlobal

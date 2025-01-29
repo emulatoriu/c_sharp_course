@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage x:TypeArguments="viewModels:TransferTokenViewModel"  
+xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+xmlns:viewModels="clr-namespace:Nethereum.UI.Core.ViewModels;assembly=Nethereum.UI.Core"
+xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+x:Class="Nethereum.UI.Core.Views.TransferTokenPage"
+Title="{Binding Title}" Icon="{Binding Icon}">
+    <views:MvxContentPage.Content>
+        <StackLayout Margin="10">
+            <Label Text="Account From :"/>
+            <Picker x:Name="accountFrom" HorizontalOptions="FillAndExpand" SelectedIndex="{Binding SelectedAccountFrom}" ItemsSource="{Binding RegisteredAccounts}" >
+            </Picker>
+            <Label Text="Token :"/>
+            <Picker x:Name="tokenCortract" HorizontalOptions="FillAndExpand" SelectedIndex="{Binding SelectedToken}" ItemsSource="{Binding RegisteredTokens}" ItemDisplayBinding="{Binding Name}"/>
+            <Label VerticalOptions="Center" Text="Balance :"/>
+            <Label VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="{Binding CurrentTokenBalance}"/>
+            <Label Text="Amount :" />
+            <Entry Text="{Binding Amount, Mode=TwoWay}" Placeholder="Token amount" />
+            <Label Text="To Address :" />
+            <Entry Text="{Binding ToAddress, Mode=TwoWay}" Placeholder="Address to send tokens" />
+            <Label Text="Gas :" />
+            <Entry Text="{Binding Gas, Mode=TwoWay}" Placeholder="Gas (Optional it will be estimated if blank)" />
+            <Label Text="Gas Price (Gwei):" />
+            <Entry Text="{Binding GasPrice, Mode=TwoWay}" Placeholder="Gas Price (GWei)" />
+
+            <Button  HorizontalOptions="Center" Margin="5" Text="Transfer" Command="{Binding ExecuteTransactionCommand}" />
+        </StackLayout>
+    </views:MvxContentPage.Content>
+</views:MvxContentPage>

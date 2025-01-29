@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WifiKursApp": {
+      "commandName": "Project",
+      "commandLineArgs": "Test1 Test2 Test3"
+    }
+  }
+}

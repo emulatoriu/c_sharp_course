@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:7462/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:7462/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:7462/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/TemperaturUmrechnerService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_CelsiusToKelvin_InputMessage">
+    <wsdl:part name="parameters" element="tns:CelsiusToKelvin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CelsiusToKelvin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CelsiusToKelvinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CelsiusToFahrenheit_InputMessage">
+    <wsdl:part name="parameters" element="tns:CelsiusToFahrenheit" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CelsiusToFahrenheit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CelsiusToFahrenheitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KelvinNachCelsius_InputMessage">
+    <wsdl:part name="parameters" element="tns:KelvinNachCelsius" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KelvinNachCelsius_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KelvinNachCelsiusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KelvinNachFahreheit_InputMessage">
+    <wsdl:part name="parameters" element="tns:KelvinNachFahreheit" />
+  </wsdl:message>
+  <wsdl:message name="IService1_KelvinNachFahreheit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KelvinNachFahreheitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FahrenheitNachCelsius_InputMessage">
+    <wsdl:part name="parameters" element="tns:FahrenheitNachCelsius" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FahrenheitNachCelsius_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FahrenheitNachCelsiusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FahrenheitNachKelvin_InputMessage">
+    <wsdl:part name="parameters" element="tns:FahrenheitNachKelvin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_FahrenheitNachKelvin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FahrenheitNachKelvinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetData" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDataUsingDataContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertKunde_InputMessage">
+    <wsdl:part name="parameters" element="tns:insertKunde" />
+  </wsdl:message>
+  <wsdl:message name="IService1_insertKunde_OutputMessage">
+    <wsdl:part name="parameters" element="tns:insertKundeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_login_InputMessage">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="IService1_login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="CelsiusToKelvin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CelsiusToKelvin" message="tns:IService1_CelsiusToKelvin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CelsiusToKelvinResponse" message="tns:IService1_CelsiusToKelvin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CelsiusToFahrenheit" message="tns:IService1_CelsiusToFahrenheit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CelsiusToFahrenheitResponse" message="tns:IService1_CelsiusToFahrenheit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KelvinNachCelsius">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KelvinNachCelsius" message="tns:IService1_KelvinNachCelsius_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KelvinNachCelsiusResponse" message="tns:IService1_KelvinNachCelsius_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KelvinNachFahreheit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/KelvinNachFahreheit" message="tns:IService1_KelvinNachFahreheit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/KelvinNachFahreheitResponse" message="tns:IService1_KelvinNachFahreheit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitNachCelsius">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FahrenheitNachCelsius" message="tns:IService1_FahrenheitNachCelsius_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FahrenheitNachCelsiusResponse" message="tns:IService1_FahrenheitNachCelsius_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitNachKelvin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/FahrenheitNachKelvin" message="tns:IService1_FahrenheitNachKelvin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/FahrenheitNachKelvinResponse" message="tns:IService1_FahrenheitNachKelvin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetData" message="tns:IService1_GetData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataResponse" message="tns:IService1_GetData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContract" message="tns:IService1_GetDataUsingDataContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDataUsingDataContractResponse" message="tns:IService1_GetDataUsingDataContract_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="insertKunde">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/insertKunde" message="tns:IService1_insertKunde_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/insertKundeResponse" message="tns:IService1_insertKunde_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/login" message="tns:IService1_login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/loginResponse" message="tns:IService1_login_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CelsiusToKelvin">
+      <soap:operation soapAction="http://tempuri.org/IService1/CelsiusToKelvin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CelsiusToFahrenheit">
+      <soap:operation soapAction="http://tempuri.org/IService1/CelsiusToFahrenheit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KelvinNachCelsius">
+      <soap:operation soapAction="http://tempuri.org/IService1/KelvinNachCelsius" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KelvinNachFahreheit">
+      <soap:operation soapAction="http://tempuri.org/IService1/KelvinNachFahreheit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitNachCelsius">
+      <soap:operation soapAction="http://tempuri.org/IService1/FahrenheitNachCelsius" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FahrenheitNachKelvin">
+      <soap:operation soapAction="http://tempuri.org/IService1/FahrenheitNachKelvin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetData">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataUsingDataContract">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDataUsingDataContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertKunde">
+      <soap:operation soapAction="http://tempuri.org/IService1/insertKunde" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/IService1/login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:7462/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

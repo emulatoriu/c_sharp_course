@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TestDIceVisualBasic</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Dice">
+      <HintPath>..\GameLib\Dice\bin\Release\Dice.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

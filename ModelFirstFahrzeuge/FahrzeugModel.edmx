@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FahrzeugModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="FahrzeugModelStoreContainer">
+    <EntitySet Name="FahrzeugeSet" EntityType="FahrzeugModel.Store.FahrzeugeSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MarkeSet" EntityType="FahrzeugModel.Store.MarkeSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FahrzeugeMarke" Association="FahrzeugModel.Store.FahrzeugeMarke">
+      <End Role="Fahrzeuge" EntitySet="FahrzeugeSet" />
+      <End Role="Marke" EntitySet="MarkeSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FahrzeugeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Marke" Type="int" Nullable="false" />
+    <Property Name="Erstzulassung" Type="datetime" Nullable="false" />
+    <Property Name="PS" Type="smallint" Nullable="false" />
+    <Property Name="Farbe" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Marke1_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MarkeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FMarke" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FahrzeugeMarke">
+    <End Role="Fahrzeuge" Type="FahrzeugModel.Store.FahrzeugeSet" Multiplicity="*" />
+    <End Role="Marke" Type="FahrzeugModel.Store.MarkeSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Marke">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fahrzeuge">
+        <PropertyRef Name="Marke1_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="FahrzeugModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="FahrzeugModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FahrzeugeSet" EntityType="FahrzeugModel.Fahrzeuge" />
+          <EntitySet Name="MarkeSet" EntityType="FahrzeugModel.Marke" />
+          <AssociationSet Name="FahrzeugeMarke" Association="FahrzeugModel.FahrzeugeMarke">
+            <End Role="Fahrzeuge" EntitySet="FahrzeugeSet" />
+            <End Role="Marke" EntitySet="MarkeSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Fahrzeuge">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marke" Type="Int32" Nullable="false" />
+          <Property Name="Erstzulassung" Type="DateTime" Nullable="false" />
+          <Property Name="PS" Type="Int16" Nullable="false" />
+          <Property Name="Farbe" Type="String" Nullable="false" />
+          <NavigationProperty Name="Marke1" Relationship="FahrzeugModel.FahrzeugeMarke" FromRole="Fahrzeuge" ToRole="Marke" />
+        </EntityType>
+        <EntityType Name="Marke">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FMarke" Type="String" Nullable="false" />
+          <NavigationProperty Name="Fahrzeuge" Relationship="FahrzeugModel.FahrzeugeMarke" FromRole="Marke" ToRole="Fahrzeuge" />
+        </EntityType>
+        <Association Name="FahrzeugeMarke">
+          <End Type="FahrzeugModel.Fahrzeuge" Role="Fahrzeuge" Multiplicity="*" />
+          <End Type="FahrzeugModel.Marke" Role="Marke" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FahrzeugModelStoreContainer" CdmEntityContainer="FahrzeugModelContainer">
+    <EntitySetMapping Name="FahrzeugeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(FahrzeugModel.Fahrzeuge)">
+        <MappingFragment StoreEntitySet="FahrzeugeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Marke" ColumnName="Marke" />
+          <ScalarProperty Name="Erstzulassung" ColumnName="Erstzulassung" />
+          <ScalarProperty Name="PS" ColumnName="PS" />
+          <ScalarProperty Name="Farbe" ColumnName="Farbe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MarkeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(FahrzeugModel.Marke)">
+        <MappingFragment StoreEntitySet="MarkeSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FMarke" ColumnName="FMarke" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FahrzeugeMarke" TypeName="FahrzeugModel.FahrzeugeMarke" StoreEntitySet="FahrzeugeSet">
+      <EndProperty Name="Marke">
+        <ScalarProperty Name="Id" ColumnName="Marke1_Id" />
+      </EndProperty>
+      <EndProperty Name="Fahrzeuge">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
